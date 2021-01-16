@@ -88,7 +88,7 @@ namespace AvitoTestTaskClient
                                 {
                                     keysList.Add(strArr[i]);
                                 }
-                                Console.WriteLine(Del(keysList));
+                                Console.WriteLine(Del(keysList).Result);
                             }
                             break;
 
@@ -143,7 +143,7 @@ namespace AvitoTestTaskClient
             {
                 var content = new StringContent(JsonConvert.SerializeObject(keysList), Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await client.PostAsync(URL + "/Del", content);
-                return  int.Parse(await httpResponse.Content.ReadAsStringAsync());
+                return int.Parse(await httpResponse.Content.ReadAsStringAsync());
 
             }
         }

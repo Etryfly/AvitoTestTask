@@ -43,7 +43,7 @@ namespace AvitoTestTask.Controllers
         [HttpPost]
         public IActionResult Set([FromBody] Pair data)
         {
-
+            _logger.LogInformation("ttl " + data.ttl);
             if (data.ttl == 0)
                 cache.Set(data.key, data.value);
             else
