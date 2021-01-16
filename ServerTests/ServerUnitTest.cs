@@ -3,6 +3,7 @@ using AvitoTestTask;
 using AvitoTestTask.Controllers;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Moq;
 using System;
@@ -21,7 +22,7 @@ namespace ServerTests
             var serviceProvider = services.BuildServiceProvider();
             var loggerMock = new Mock<ILogger<APIController>>();
             controller = new APIController(loggerMock.Object, serviceProvider.GetService<IMemoryCache>());
-
+            
         }
 
         [Fact]
