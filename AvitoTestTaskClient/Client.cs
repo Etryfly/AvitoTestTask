@@ -1,4 +1,5 @@
-﻿using AvitoTestTask;
+﻿
+using AvitoTestTask;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -71,7 +72,7 @@ namespace AvitoTestTaskClient
                                 }
 
                                 Keys(strArr[1]);
-                               
+
                             }
                             break;
 
@@ -88,7 +89,7 @@ namespace AvitoTestTaskClient
                                 {
                                     keysList.Add(strArr[i]);
                                 }
-                                Console.WriteLine(Del(keysList));
+                                Console.WriteLine(Del(keysList).Result);
                             }
                             break;
 
@@ -110,7 +111,7 @@ namespace AvitoTestTaskClient
                 Pair pair = new Pair { key = key, value = value, ttl = ttl };
                 var content = new StringContent(JsonConvert.SerializeObject(pair), Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await client.PostAsync(URL + "/Set", content);
-                return  httpResponse.StatusCode.ToString();
+                return httpResponse.StatusCode.ToString();
             }
         }
 
@@ -143,7 +144,7 @@ namespace AvitoTestTaskClient
             {
                 var content = new StringContent(JsonConvert.SerializeObject(keysList), Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await client.PostAsync(URL + "/Del", content);
-                return  int.Parse(await httpResponse.Content.ReadAsStringAsync());
+                return int.Parse(await httpResponse.Content.ReadAsStringAsync());
 
             }
         }

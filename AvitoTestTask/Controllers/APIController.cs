@@ -1,14 +1,10 @@
-﻿
-using AvitoTestTask;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace AvitoTestTask.Controllers
@@ -35,15 +31,15 @@ namespace AvitoTestTask.Controllers
         public Pair Get(string key)
         {
             _logger.LogInformation(key);
-            return new Pair{ key=key, value=(string)cache.Get(key),ttl= 0 } ;
-           
+            return new Pair { key = key, value = (string)cache.Get(key), ttl = 0 };
+
         }
 
         [Route("Set")]
         [HttpPost]
         public IActionResult Set([FromBody] Pair data)
         {
-
+            _logger.LogInformation("ttl " + data.ttl);
             if (data.ttl == 0)
                 cache.Set(data.key, data.value);
             else
@@ -66,7 +62,7 @@ namespace AvitoTestTask.Controllers
                 {
                     var methodInfo = item.GetType().GetProperty("Key");
                     var val = methodInfo.GetValue(item);
-                    
+
                     if (pattern == null || new Regex(Regex.Escape(pattern).Replace(@"\*", ".*").Replace(@"\?", ".")).IsMatch(val.ToString()))
                     {
                         items.Add(val.ToString());

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvitoTestTaskServer", "Avit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvitoTestTaskClient", "AvitoTestTaskClient\AvitoTestTaskClient.csproj", "{A3434604-D979-4668-B346-DD7ADE35600F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerTests", "ServerTests\ServerTests.csproj", "{66C4C2F2-01C1-4B3D-9B5C-19A8B1B37537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerTests", "ServerTests\ServerTests.csproj", "{66C4C2F2-01C1-4B3D-9B5C-19A8B1B37537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

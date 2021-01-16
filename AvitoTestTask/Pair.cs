@@ -6,13 +6,13 @@
         public string value { get; set; }
         public int ttl { get; set; }
 
-     /*   public Pair(string key, string value, int ttl)
-        {
-            this.key = key;
-            this.value = value;
-            this.ttl = ttl;
+        /*   public Pair(string key, string value, int ttl)
+           {
+               this.key = key;
+               this.value = value;
+               this.ttl = ttl;
 
-        }*/
+           }*/
 
         public override bool Equals(object obj)
         {
