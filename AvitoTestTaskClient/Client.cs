@@ -1,14 +1,15 @@
-﻿using AvitoTestTaskServer;
+﻿using AvitoTestTask;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AvitoTestTaskClient
 {
-    class Program
+    public class Client
     {
         static String URL = "https://localhost:44357";
         static void Main(string[] args)
@@ -57,7 +58,7 @@ namespace AvitoTestTaskClient
                                     continue;
                                 }
                                 int ttl = (strArr.Length == 4 ? int.Parse(strArr[3]) : 0);
-                                Set(strArr[1], strArr[2], ttl);
+                                Console.WriteLine(Set(strArr[1], strArr[2], ttl).Result);
                             }
                             break;
 
@@ -87,7 +88,7 @@ namespace AvitoTestTaskClient
                                 {
                                     keysList.Add(strArr[i]);
                                 }
-                                Del(keysList);
+                                Console.WriteLine(Del(keysList));
                             }
                             break;
 
@@ -100,7 +101,7 @@ namespace AvitoTestTaskClient
 
 
 
-        public static async void Set(string key, string value, int ttl)
+        public static async Task<string> Set(string key, string value, int ttl)
         {
 
             using (HttpClient client = new HttpClient())
@@ -109,7 +110,7 @@ namespace AvitoTestTaskClient
                 Pair pair = new Pair { key = key, value = value, ttl = ttl };
                 var content = new StringContent(JsonConvert.SerializeObject(pair), Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await client.PostAsync(URL + "/Set", content);
-                Console.WriteLine(httpResponse.StatusCode);
+                return  httpResponse.StatusCode.ToString();
             }
         }
 
@@ -135,14 +136,14 @@ namespace AvitoTestTaskClient
             }
         }
 
-        public static async void Del(List<string> keysList)
+        public static async Task<int> Del(List<string> keysList)
         {
 
             using (HttpClient client = new HttpClient())
             {
                 var content = new StringContent(JsonConvert.SerializeObject(keysList), Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await client.PostAsync(URL + "/Del", content);
-                Console.WriteLine(await httpResponse.Content.ReadAsStringAsync());
+                return  int.Parse(await httpResponse.Content.ReadAsStringAsync());
 
             }
         }

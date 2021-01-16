@@ -1,12 +1,14 @@
 ﻿
-using AvitoTestTaskServer;
+using AvitoTestTask;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace AvitoTestTask.Controllers
@@ -30,14 +32,11 @@ namespace AvitoTestTask.Controllers
 
         [Route("Get")]
         [HttpGet]
-        public JsonResult Get(string key)
+        public Pair Get(string key)
         {
             _logger.LogInformation(key);
-            return new JsonResult(new
-            {
-                key = key,
-                value = cache.Get(key)
-            });
+            return new Pair{ key=key, value=(string)cache.Get(key),ttl= 0 } ;
+           
         }
 
         [Route("Set")]

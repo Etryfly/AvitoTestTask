@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvitoTestTaskServer", "AvitoTestTask\AvitoTestTaskServer.csproj", "{1DB10F0D-3830-4465-A46A-4A45BF312ADA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvitoTestTaskClient", "AvitoTestTaskClient\AvitoTestTaskClient.csproj", "{A3434604-D979-4668-B346-DD7ADE35600F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvitoTestTaskClient", "AvitoTestTaskClient\AvitoTestTaskClient.csproj", "{A3434604-D979-4668-B346-DD7ADE35600F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerTests", "ServerTests\ServerTests.csproj", "{66C4C2F2-01C1-4B3D-9B5C-19A8B1B37537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A3434604-D979-4668-B346-DD7ADE35600F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3434604-D979-4668-B346-DD7ADE35600F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3434604-D979-4668-B346-DD7ADE35600F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C4C2F2-01C1-4B3D-9B5C-19A8B1B37537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C4C2F2-01C1-4B3D-9B5C-19A8B1B37537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C4C2F2-01C1-4B3D-9B5C-19A8B1B37537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C4C2F2-01C1-4B3D-9B5C-19A8B1B37537}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

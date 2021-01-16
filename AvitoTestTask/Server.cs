@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
+
 namespace AvitoTestTask
 {
-    public class Program
+    public class Server
     {
         public static void Main(string[] args)
         {
